@@ -1,5 +1,6 @@
 class TopNewsController < ApplicationController
   before_action :find_news, only: %i[show edit update destroy]
+  before_action :require_login, only: %i[new create edit update destroy]
 
   def index
     @all_news = TopNews.all
