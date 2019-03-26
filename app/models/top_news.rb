@@ -1,4 +1,6 @@
 class TopNews < ApplicationRecord
+  validates :title, :announcement, :context, presence: true
+
   before_validation :set_date_create
 
   private
