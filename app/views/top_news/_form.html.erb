@@ -1,0 +1,7 @@
+<%= simple_form_for( @news) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title %>
+  <%= f.input :announcement %>
+  <%= f.input :context %>
+  <%= f.button :submit, "Create", class: "btn-primary" %>
+<% end %>

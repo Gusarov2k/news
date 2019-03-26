@@ -1,0 +1,27 @@
+<h1>News</h1>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title:</th>
+        <th scope="col">Announcement:</th>
+        <th scope="col">Context:</th>
+        <th scope="col">Date create:</th>
+        <th scope="col">Edit news</th>
+        <th scope="col">Delete news</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @all_news.each do |news| %>
+        <tr>
+          <td><%= news.title %></td>
+          <td><%= news.announcement %></td>
+          <td><%= news.context %></td>
+          <td><%= news.created.to_formatted_s(:rfc822) %></td>
+          <td><%= link_to 'Edit', edit_top_news_path(news) %></td>
+          <td><%= link_to 'Delete', top_news_path(news), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
