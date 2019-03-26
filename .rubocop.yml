@@ -31,7 +31,6 @@ Metrics/MethodLength:
   Max: 25
 #################### Style ###############################
 
-
 Style/StringLiterals:
   Description: 'Checks if uses of quotes match the configured preference.'
   StyleGuide: '#consistent-string-literals'
