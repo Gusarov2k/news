@@ -2,39 +2,33 @@ class TopNewsController < ApplicationController
   before_action :find_news, only: %i[show edit update destroy]
   before_action :require_login, only: %i[new create edit update destroy]
 
+  respond_to :html
+
   def index
-    @all_news = TopNews.all.order('created DESC')
+    respond_with(@all_news = TopNews.all.order('created DESC'))
   end
 
-  def show; end
+  def show
+    respond_with(@news)
+  end
 
   def new
-    @news = TopNews.new
+    respond_with(@news = TopNews.new)
   end
 
   def edit; end
 
   def create
-    @news = TopNews.new(top_news_params)
-
-    if @news.save
-      redirect_to @news
-    else
-      render :new
-    end
+    respond_with(@news = TopNews.new(top_news_params))
   end
 
   def update
-    if @news.update(top_news_params)
-      redirect_to @news
-    else
-      render :edit
-    end
+    @news.update(top_news_params)
+    respond_with(@news)
   end
 
   def destroy
-    @news.destroy
-    redirect_to top_news_index_path
+    respond_with(@news.destroy)
   end
 
   private
