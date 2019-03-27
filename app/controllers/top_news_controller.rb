@@ -3,7 +3,7 @@ class TopNewsController < ApplicationController
   before_action :require_login, only: %i[new create edit update destroy]
 
   def index
-    @all_news = TopNews.all
+    @all_news = TopNews.all.order('created DESC')
   end
 
   def show; end

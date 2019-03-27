@@ -6,8 +6,10 @@
         <th scope="col">Announcement:</th>
         <th scope="col">Context:</th>
         <th scope="col">Date create:</th>
-        <th scope="col">Edit news</th>
-        <th scope="col">Delete news</th>
+        <% if current_user %>
+          <th scope="col">Edit news</th>
+        <% end %>
+        <th scope="col">Back to all news</th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +18,9 @@
           <td><%= @news.announcement %></td>
           <td><%= @news.context %></td>
           <td><%= @news.created.to_formatted_s(:rfc822) %></td>
-          <td><%= link_to 'Edit', edit_top_news_path %></td>
+          <% if current_user %>
+            <td><%= link_to 'Edit', edit_top_news_path %></td>
+           <% end %>
           <td><%= link_to 'Back', top_news_index_path %></td>
         </tr>
     </tbody>
