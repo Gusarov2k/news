@@ -14,7 +14,7 @@ RSpec.describe TopNews, type: :model do
         expect(news).not_to be_valid
       end
 
-       it 'announcement nil' do
+      it 'announcement nil' do
         news.announcement = nil
         expect(news).not_to be_valid
       end
