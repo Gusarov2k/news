@@ -9,11 +9,4 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true, presence: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
   validates :name, presence: true, length: { minimum: 2 }, format: { with: /\A[a-zA-Z0-9]+\Z/ }
-
-  private
-
-  def clear_words
-    self.name = name.mb_chars.downcase.strip
-    self.email = email.downcase.strip
-  end
 end
