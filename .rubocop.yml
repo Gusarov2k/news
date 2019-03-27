@@ -3,6 +3,7 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'bin/*'
+    - 'config/initializers/sorcery.rb'
   RSpec:
     Patterns:
     - '_test.rb$'
